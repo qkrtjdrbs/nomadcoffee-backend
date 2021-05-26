@@ -3,18 +3,17 @@ import { gql } from "apollo-server-core";
 export default gql`
   type User {
     id: Int!
+    username: String!
+    email: String!
     name: String!
+    location: String
+    password: String!
+    avatarURL: String
+    gitHubUsername: String
     createdAt: String!
     updatedAt: String!
   }
-  type createUserResult {
-    ok: Boolean!
-    error: String
-  }
   type Query {
-    findUser(id: Int!): User
-  }
-  type Mutation {
-    createUser(name: String!): createUserResult!
+    hello: String
   }
 `;

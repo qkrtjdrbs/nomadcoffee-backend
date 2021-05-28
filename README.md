@@ -1,7 +1,7 @@
 # nomadcoffee-backend
 Find a good cafe to code!
 
--createAccount
--login
--seeProfile
--editProfile
+-[x] createAccount
+-[x] login
+-[x] seeProfile
+-[x] editProfile

@@ -5,15 +5,14 @@ export default gql`
     id: Int!
     username: String!
     email: String!
+    password: String!
     name: String!
     location: String
-    password: String!
     avatarURL: String
     gitHubUsername: String
+    followers(lastId: Int): [User]
+    following(lastId: Int): [User]
     createdAt: String!
     updatedAt: String!
-  }
-  type Query {
-    hello: String
   }
 `;

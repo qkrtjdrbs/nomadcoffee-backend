@@ -1,0 +1,2 @@
+client로 무언가를 findUnique할 때는 무조건 Unique한 key로 찾아야 한다.
+.map()은 배열에서만 작동한다.

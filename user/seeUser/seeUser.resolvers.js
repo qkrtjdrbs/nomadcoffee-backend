@@ -44,5 +44,20 @@ export default {
         });
       return following;
     },
+    totalFollowers: ({ id }) =>
+      client.user.count({ where: { following: { some: { id } } } }),
+    totalFollowing: ({ id }) =>
+      client.user.count({ where: { followers: { some: { id } } } }),
+    isFollowing: async ({ id }, _, { loggedInUser }) => {
+      if (!loggedInUser) return false;
+      const exists = await client.user
+        .findUnique({ where: { username: loggedInUser.username } })
+        .following({ where: { id } });
+      return exists.length !== 0;
+    },
+    isMe: ({ id }, _, { loggedInUser }) => {
+      if (!loggedInUser) return false;
+      return id === loggedInUser.id;
+    },
   },
 };

@@ -1,5 +1,6 @@
 import { client } from "../../client";
 import { protectedResolver } from "../../user/user.utils";
+import { uploadFile } from "../../utils";
 import { splitCategory } from "../coffeeShop.utils";
 
 export default {
@@ -34,13 +35,13 @@ export default {
         //files coffeeShopPhoto로 upload.
         //connect는 newCoffeeShop's id to coffeeShopId
         files.forEach(async (file) => {
-          //추후 s3 업로드해서 각 파일마다 url 생성 예정
+          const newFile = await uploadFile(file, loggedInUser.id);
           await client.coffeeShopPhoto.create({
             data: {
-              url: file,
+              url: newFile,
               shop: {
                 connect: {
-                  id: loggedInUser.id,
+                  id: newCoffeeShop.id,
                 },
               },
             },

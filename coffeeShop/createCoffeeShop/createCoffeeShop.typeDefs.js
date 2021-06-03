@@ -6,7 +6,7 @@ export default gql`
       name: String!
       latitude: String!
       longitude: String!
-      files: [String]
+      files: [Upload]
       categories: [String]
     ): CoffeeShop
   }

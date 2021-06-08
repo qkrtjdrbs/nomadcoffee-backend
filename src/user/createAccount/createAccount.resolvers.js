@@ -8,13 +8,21 @@ export default {
       { username, email, name, location, password, avatarURL, githubUsername }
     ) => {
       try {
-        const isExist = await client.user.findFirst({
+        const isUsernameExist = await client.user.findFirst({
           where: {
-            OR: [{ username }, { email }],
+            username,
           },
         });
-        if (isExist) {
-          throw new Error("Username or Email already exists.");
+        const isEmailExist = await client.user.findFirst({
+          where: {
+            email,
+          },
+        });
+        if (isUsernameExist) {
+          throw new Error("Username already exists.");
+        }
+        if (isEmailExist) {
+          throw new Error("Email already exists.");
         }
         const hashedPassword = await bcrypt.hash(password, 10);
         await client.user.create({
@@ -34,7 +42,7 @@ export default {
       } catch (e) {
         return {
           ok: false,
-          error: "Can't create Account.",
+          error: e.message,
         };
       }
     },

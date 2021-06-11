@@ -7,7 +7,7 @@ AWS.config.update({
   },
 });
 
-export const uploadFile = (file, userId) => {
+export const uploadFile = async (file, userId) => {
   const { filename, createReadStream } = await file;
   const readStream = createReadStream();
   const objName = `${userId}-${Date.now()}-${filename}`;

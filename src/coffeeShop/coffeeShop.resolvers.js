@@ -18,9 +18,7 @@ export default {
     photos: ({ id }) =>
       client.coffeeShopPhoto.findMany({
         where: {
-          shop: {
-            id,
-          },
+          coffeeShopId: id,
         },
       }),
     categories: ({ id }) =>
@@ -33,5 +31,9 @@ export default {
           },
         },
       }),
+    isMine: ({ userId }, _, { loggedInUser }) => {
+      if (!loggedInUser) return false;
+      return userId === loggedInUser.id;
+    },
   },
 };

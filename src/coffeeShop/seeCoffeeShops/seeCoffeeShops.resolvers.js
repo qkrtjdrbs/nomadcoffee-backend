@@ -5,7 +5,7 @@ export default {
     seeCoffeeShops: (_, { lastId }) =>
       client.coffeeShop.findMany({
         skip: lastId ? 1 : 0,
-        take: 5,
+        take: 15,
         ...(lastId && { cursor: { id: lastId } }),
       }),
   },

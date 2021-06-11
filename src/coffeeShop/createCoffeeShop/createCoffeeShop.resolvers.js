@@ -34,7 +34,7 @@ export default {
         });
         //files coffeeShopPhoto로 upload.
         //connect는 newCoffeeShop's id to coffeeShopId
-        files.forEach(async (file) => {
+        files?.forEach(async (file) => {
           const newFile = await uploadFile(file, loggedInUser.id);
           await client.coffeeShopPhoto.create({
             data: {

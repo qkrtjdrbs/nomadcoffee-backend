@@ -20,6 +20,6 @@ CoffeeShop
 - [x] seeCategory : see all coffee shops using a particular category.  
 - [x] seeCoffeeShop  
 - [x] seeCoffeeShops : see all coffee shops  
-- [ ] deleteCoffeeShop  
-- [ ] searchCoffeeShop : search coffee shop by keyword  
+- [x] deleteCoffeeShop  
+- [x] searchCoffeeShop : search coffee shop by keyword  
 

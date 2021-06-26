@@ -1,5 +1,4 @@
 # nomadcoffee-backend
-Find good cafe to Coding!
 =========================
 
 User

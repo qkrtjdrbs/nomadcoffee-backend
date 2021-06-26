@@ -1,5 +1,4 @@
 # nomadcoffee-backend
-=====================
 
 User
 ----

@@ -1,4 +1,3 @@
-import { client } from "../../client";
 import { protectedResolver } from "../../user/user.utils";
 import { uploadFile } from "../../utils";
 

@@ -4,7 +4,7 @@ export default {
   Query: {
     seeCoffeeShops: (_, { offset }) =>
       client.coffeeShop.findMany({
-        take: 3,
+        take: 20,
         skip: offset,
         orderBy: {
           createdAt: "desc",
